@@ -1,0 +1,314 @@
+@font-face {
+    font-family: SourceCodePro;
+    src: url(fonts/SourceCodePro-Black.ttf);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: SourceCodePro;
+    src: url(fonts/SourceCodePro-Light.ttf);
+    font-weight: 300;
+}
+
+@font-face{
+    font-family: SourceCodePro;
+    src: url(fonts/SourceCodePro-Medium.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: SourceCodePro;
+    src: url(fonts/SourceCodePro-Regular.ttf);
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: SourceCodePro;
+}
+
+html {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 300;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 300;
+}
+
+header {
+    position: relative;
+}
+
+.header_background img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.header_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255,255,255,0.29);
+    color: white;
+    padding: 82px 139px 48px 138px;
+    border: solid white 1px;
+    backdrop-filter: blur(20px);
+}
+ 
+.header_content h1 {
+    display: flex;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.gallery-left, .gallery-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 49%;
+}
+
+.gallery-card {
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.gallery-card img {
+    display: block;
+}
+
+.text-card {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    transform: translateX(100%);
+    z-index: 3;
+    transition: 0.5s;
+    backdrop-filter: blur(20px);
+    padding: 45px;
+    color: white;
+    padding-top: 64px;
+    transition: 0.5s;
+}
+
+.gallery-card:hover .text-card {
+    transform: translateX(0);
+}
+
+.gallery-card:hover {
+    transform: scale(0.8);
+}
+
+.text-card hr {
+    border:solid 0.5px white;
+    margin-bottom: 14px;
+    margin-top: 14px;
+}
+
+.text-card::before {
+    content: url(img/icons/ic1.svg);
+    position: absolute;
+    top: 6px;
+    left: 11px;
+}
+
+.text-card::after {
+    content: url(img/icons/ic2.svg);
+    position: absolute;
+    bottom: 6px;
+    right: 9px;
+}
+
+.gallery-card:hover .text-card {
+    transform: translateX(0);
+}
+
+.gallery-card:nth-of-type(2n+1){
+    border: solid 5px #945426;
+}
+
+.gallery-card:nth-of-type(2n) {
+    border: solid 5px #335f69;
+}
+
+.gallery-card:nth-of-type(2n+1) .text-card {
+    background-color: #94542680;
+}
+
+.gallery-card:nth-of-type(2n) .text-card {
+    background-color: #335f6982 ;
+}
+
+@media screen and (max-width: 1400px) {
+    html {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 3.125rem;
+        line-height: 3.125rem;
+    }
+    h2 {
+        font-size: 1.56rem;
+    }
+    .header_content {
+        left: 0;
+        transform: translateX(0);
+        padding: 30px 85px 25px 12px;
+    }
+    .header_content h2{
+        text-align: left;
+    }
+    .text-card {
+        transform: translateX(0);
+        height: 111px;
+        width: 100%;
+        bottom: 0;
+        top: auto;
+        padding: 10px 0 0;
+        text-align: center;
+    }
+    .text-card h2 {
+        height: 46px;
+    }
+    .gallery-card:nth-of-type(2n+1) p{
+        background-color: #955426;
+        padding: 22px 0;
+        height: 65px;
+    }
+    .gallery-card:nth-of-type(2n) p{
+        background-color: #325E68;
+        padding: 22px 0;
+        height: 65px;
+        margin-top: auto;
+    }
+    .text-card::after {
+        content: "";
+    }
+    .text-card::before {
+        content: "";
+    }
+    hr {
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) and (orientation:portrait) {
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gallery-left, .gallery-right {
+        width: 80%;
+    }
+    .gallery-card:hover {
+        transform: scale(1);
+    }
+    .header_content{
+        padding: 20px 85PX 25PX 12PX;
+        transform: translateY(-50%);
+    }
+    .gallery-card:nth-of-type(2n+1) .text-card,
+    .gallery-card:nth-of-type(2n) .text-card {
+       text-align: right;
+       background-color: transparent;
+       backdrop-filter: none;
+    }
+    .gallery-card:nth-of-type(2n) h2 {
+        background-color: #335f6982;
+    }
+    .gallery-card:nth-of-type(2n+1) h2 {
+        background-color: #94542680;
+    }
+    .text-card h2 {
+        width: 261px;
+        margin-left: auto;
+        text-align: center;
+        backdrop-filter: blur(20px);
+        border-top-left-radius: 10px;
+        padding-top: 8px;
+    }
+}
+
+@media (max-width: 667px) and (orientation:landscape) {
+    html{
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    h2{
+        font-size: 25px;
+    }
+    .header_content{
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 29px 96px;
+    }
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gallery-left, .gallery-right {
+        width: 90%;
+    }
+}
+
+@media (max-width: 375px) and (orientation: portrait) {
+    html {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    h2{
+        font-size: 25px;
+    }
+    .header_content {
+        right: 0;
+        padding: 0;
+        width: 110px;
+        left: auto;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header_content h1{
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        height: 50%;
+    }
+}
+
+
+/* В файле к уроку в Фигме справа есть блок - домашнее задание. Твоя задача сверстать компьютерную версию данного макета. Первая карточка в состоянии hover, остальные карточки без hover. Используя тег picture сделать 3 картинки для разных экранов */
+
+/* 
+Дописать стили, кроме размытия, для хэдера  */
